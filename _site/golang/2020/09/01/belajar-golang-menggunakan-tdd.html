@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<title>Belajar Golang Menggunakan Test Driven Development (TDD)</title>
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Belajar Golang Menggunakan Test Driven Development (TDD) | Temporary Coding Stuff Title</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Belajar Golang Menggunakan Test Driven Development (TDD)" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Pada kesempatan kali ini, kita akan belajar bahasa pemrograman Golang dengan menerapkan Test Driven Development. Kita tidak hanya akan membuat implementasi dari suatu program, tapi juga akan membuat test terlebih dahulu sebelum menjalankan program yang kita buat." />
+<meta property="og:description" content="Pada kesempatan kali ini, kita akan belajar bahasa pemrograman Golang dengan menerapkan Test Driven Development. Kita tidak hanya akan membuat implementasi dari suatu program, tapi juga akan membuat test terlebih dahulu sebelum menjalankan program yang kita buat." />
+<link rel="canonical" href="http://localhost:4000/golang/2020/09/01/belajar-golang-menggunakan-tdd.html" />
+<meta property="og:url" content="http://localhost:4000/golang/2020/09/01/belajar-golang-menggunakan-tdd.html" />
+<meta property="og:site_name" content="Temporary Coding Stuff Title" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-09-01T05:55:18+07:00" />
+<script type="application/ld+json">
+{"description":"Pada kesempatan kali ini, kita akan belajar bahasa pemrograman Golang dengan menerapkan Test Driven Development. Kita tidak hanya akan membuat implementasi dari suatu program, tapi juga akan membuat test terlebih dahulu sebelum menjalankan program yang kita buat.","headline":"Belajar Golang Menggunakan Test Driven Development (TDD)","dateModified":"2020-09-01T05:55:18+07:00","datePublished":"2020-09-01T05:55:18+07:00","url":"http://localhost:4000/golang/2020/09/01/belajar-golang-menggunakan-tdd.html","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/golang/2020/09/01/belajar-golang-menggunakan-tdd.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+</head>
+<body>
+  <header class="texture-">
+    <div class="container"></div><div class="container">
+	<h1>Belajar Golang Menggunakan Test Driven Development (TDD)</h1>
+	<h4 class="post-description"></h4>
+	<div class="post-date" style="margin-top:20px">
+		Published on Sep 1, 2020
+	</div>
+	<ul class="post-tags"><li>Golang</li></ul>
+</div>
+</header>
+  <main>
+    <div class="container">
+      <div class="post-container">
+          <p>Pada kesempatan kali ini, kita akan belajar bahasa pemrograman Golang dengan menerapkan Test Driven Development.
+Kita tidak hanya akan membuat implementasi dari suatu program, tapi juga akan membuat test terlebih dahulu sebelum menjalankan program yang kita buat.</p>
+
+<p>“Lah, Ngapain ditest dulu sebelum dibuat. Bukannya kita langsung buat aja programnya dulu setelah itu baru ditest?”</p>
+
+<p>Test yang akan kita buat ini akan dibuat menjadi kode yang selanjutnya bisa dieksekusi kapanpun kita inginkan. 
+Kelebihannya adalah feedback bisa menjadi lebih cepat karena selanjutnya kode test kita sendiri yang akan mengecek apakah kode kita sudah benar atau belum.
+Selain itu, kita juga bisa membagi kode kita menjadi bagian-bagian kecil sehingga gampang untuk dirawat, memaksa kita untuk membuat kode yang optimal dan efisien serta 
+dengan adanya test maka ketika ada perubahan nanti kita tidak perlu khawatir akan mempengaruhi fitur lain. Fitur-fitur yang sudah ada
+sudah memiliki test tersendiri, karena itu jika dari pembuatan fitur baru terjadi kerusakan pada test yang sudah lama maka kita bisa langsung mengetahui hanya dengan menjalankan test yang sudah ada.</p>
+
+<p>Oke, untuk memulai pelajaran kita ini, kita akan membuat program yang akan menampilkan “Hello world”.</p>
+
+<div class="language-golang highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="n">main</span>
+
+<span class="k">import</span> <span class="s">"fmt"</span>
+
+<span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">"Hello world"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+
+      </div>
+
+        <!-- Configure Disqus --></div>
+  </main></body>
+</html>
