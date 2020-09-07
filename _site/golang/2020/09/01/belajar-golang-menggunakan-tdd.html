@@ -7,15 +7,15 @@
 <meta name="generator" content="Jekyll v3.9.0" />
 <meta property="og:title" content="Belajar Golang Menggunakan Test Driven Development (TDD)" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Halo semua, pada kali ini kita akan membuat program sederhana dengan menggunakan bahasa pemrograman Golang. Kita akan memulai dengan membuat fungsi serta sekaligus belajar tipe data string. Kita akan membuat program dengan dibantu oleh test yang terlebih dahulu kita buat. Cara ini disebut dengan nama Test Driven Development." />
-<meta property="og:description" content="Halo semua, pada kali ini kita akan membuat program sederhana dengan menggunakan bahasa pemrograman Golang. Kita akan memulai dengan membuat fungsi serta sekaligus belajar tipe data string. Kita akan membuat program dengan dibantu oleh test yang terlebih dahulu kita buat. Cara ini disebut dengan nama Test Driven Development." />
+<meta name="description" content="Halo semua, pada kali ini kita akan membuat program sederhana dengan menggunakan bahasa pemrograman Golang. Kita akan memulai dengan membuat fungsi sekaligus belajar tipe data string dengan dibantu oleh test yang terlebih dahulu kita buat. Cara ini disebut dengan nama Test Driven Development." />
+<meta property="og:description" content="Halo semua, pada kali ini kita akan membuat program sederhana dengan menggunakan bahasa pemrograman Golang. Kita akan memulai dengan membuat fungsi sekaligus belajar tipe data string dengan dibantu oleh test yang terlebih dahulu kita buat. Cara ini disebut dengan nama Test Driven Development." />
 <link rel="canonical" href="http://localhost:4000/golang/2020/09/01/belajar-golang-menggunakan-tdd.html" />
 <meta property="og:url" content="http://localhost:4000/golang/2020/09/01/belajar-golang-menggunakan-tdd.html" />
 <meta property="og:site_name" content="Temporary Coding Stuff Title" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-09-01T05:55:18+07:00" />
 <script type="application/ld+json">
-{"description":"Halo semua, pada kali ini kita akan membuat program sederhana dengan menggunakan bahasa pemrograman Golang. Kita akan memulai dengan membuat fungsi serta sekaligus belajar tipe data string. Kita akan membuat program dengan dibantu oleh test yang terlebih dahulu kita buat. Cara ini disebut dengan nama Test Driven Development.","dateModified":"2020-09-01T05:55:18+07:00","datePublished":"2020-09-01T05:55:18+07:00","headline":"Belajar Golang Menggunakan Test Driven Development (TDD)","url":"http://localhost:4000/golang/2020/09/01/belajar-golang-menggunakan-tdd.html","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/golang/2020/09/01/belajar-golang-menggunakan-tdd.html"},"@context":"https://schema.org"}</script>
+{"description":"Halo semua, pada kali ini kita akan membuat program sederhana dengan menggunakan bahasa pemrograman Golang. Kita akan memulai dengan membuat fungsi sekaligus belajar tipe data string dengan dibantu oleh test yang terlebih dahulu kita buat. Cara ini disebut dengan nama Test Driven Development.","dateModified":"2020-09-01T05:55:18+07:00","datePublished":"2020-09-01T05:55:18+07:00","headline":"Belajar Golang Menggunakan Test Driven Development (TDD)","url":"http://localhost:4000/golang/2020/09/01/belajar-golang-menggunakan-tdd.html","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/golang/2020/09/01/belajar-golang-menggunakan-tdd.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Temporary Coding Stuff Title" /></head>
 <body><header class="site-header" role="banner">
@@ -46,11 +46,11 @@
 
   <div class="post-content e-content" itemprop="articleBody">
     <p>Halo semua, pada kali ini kita akan membuat program sederhana dengan menggunakan bahasa pemrograman Golang.
-Kita akan memulai dengan membuat fungsi serta sekaligus belajar tipe data string.
-Kita akan membuat program dengan dibantu oleh test yang terlebih dahulu kita buat. Cara ini disebut dengan nama 
-<em>Test Driven Development</em>.</p>
+Kita akan memulai dengan membuat fungsi sekaligus belajar tipe data string dengan dibantu oleh test yang terlebih 
+dahulu kita buat. Cara ini disebut dengan nama <em>Test Driven Development</em>.</p>
 
-<p>Untuk memulai, kita perlu membuat sebuah file baru dengan nama <em>greeting_test.go</em>. Nama file test yang akan kita buat,</p>
+<p>Untuk memulai, kita perlu membuat sebuah file baru dengan nama <em>greeting_test.go</em>. 
+Nama file test yang akan kita buat, harus diakhiri dengan akhiran _test.go supaya bisa dikenal oleh go sebagai file test.</p>
 
 <figure class="highlight"><pre><code class="language-golang" data-lang="golang"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
 2
@@ -88,8 +88,9 @@ FAIL    golang_with_test [build failed]
 <p>Setelah mengetahui tentang test kita yang gagal, perlu diperhatikan pesan error yang ada. Kali ini, <em>undefined: Greeting</em>
 yang artinya, kita telah menggunakan fungsi greeting (baris 6 di greeting_test.go) namun fungsi tersebut belum dibuat.</p>
 
-<p>Langkah selanjutnya yang akan kita lakukan adalah membuat fungsi greeting. Kita akan memulainya dengan membuat file baru 
-dengan nama <em>greeting.go</em>.</p>
+<p>Langkah selanjutnya yang akan kita lakukan adalah membuat fungsi Greeting. Kita akan memulainya dengan membuat file baru 
+dengan nama <em>greeting.go</em>. Untuk implementasi fungsi Greeting, harus dibuat sesederhana mungkin. Tujuannya adalah untuk 
+membuat test-nya lolos untuk permasalahan seperti yang di atas, tidak lebih.</p>
 
 <figure class="highlight"><pre><code class="language-golang" data-lang="golang"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
 2

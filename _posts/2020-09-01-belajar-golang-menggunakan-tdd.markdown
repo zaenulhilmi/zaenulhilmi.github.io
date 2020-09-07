@@ -6,11 +6,11 @@ categories: Golang
 ---
 
 Halo semua, pada kali ini kita akan membuat program sederhana dengan menggunakan bahasa pemrograman Golang.
-Kita akan memulai dengan membuat fungsi serta sekaligus belajar tipe data string.
-Kita akan membuat program dengan dibantu oleh test yang terlebih dahulu kita buat. Cara ini disebut dengan nama 
-*Test Driven Development*.
+Kita akan memulai dengan membuat fungsi sekaligus belajar tipe data string dengan dibantu oleh test yang terlebih 
+dahulu kita buat. Cara ini disebut dengan nama *Test Driven Development*.
 
-Untuk memulai, kita perlu membuat sebuah file baru dengan nama *greeting_test.go*. Nama file test yang akan kita buat,
+Untuk memulai, kita perlu membuat sebuah file baru dengan nama *greeting_test.go*. 
+Nama file test yang akan kita buat, harus diakhiri dengan akhiran _test.go supaya bisa dikenal oleh go sebagai file test.
 
 {% highlight golang linenos %}
 package main
@@ -38,8 +38,9 @@ FAIL    golang_with_test [build failed]
 Setelah mengetahui tentang test kita yang gagal, perlu diperhatikan pesan error yang ada. Kali ini, *undefined: Greeting*
 yang artinya, kita telah menggunakan fungsi greeting (baris 6 di greeting_test.go) namun fungsi tersebut belum dibuat.
 
-Langkah selanjutnya yang akan kita lakukan adalah membuat fungsi greeting. Kita akan memulainya dengan membuat file baru 
-dengan nama *greeting.go*.
+Langkah selanjutnya yang akan kita lakukan adalah membuat fungsi Greeting. Kita akan memulainya dengan membuat file baru 
+dengan nama *greeting.go*. Untuk implementasi fungsi Greeting, harus dibuat sesederhana mungkin. Tujuannya adalah untuk 
+membuat test-nya lolos untuk permasalahan seperti yang di atas, tidak lebih.
 
 
 {% highlight golang linenos %}
