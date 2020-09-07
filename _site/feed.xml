@@ -1,21 +1,89 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-09-06T19:18:25+07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Temporary Coding Stuff Title</title><subtitle>code talk, talk about code.</subtitle><entry><title type="html">Belajar Golang Menggunakan Test Driven Development (TDD)</title><link href="http://localhost:4000/golang/2020/09/01/belajar-golang-menggunakan-tdd.html" rel="alternate" type="text/html" title="Belajar Golang Menggunakan Test Driven Development (TDD)" /><published>2020-09-01T05:55:18+07:00</published><updated>2020-09-01T05:55:18+07:00</updated><id>http://localhost:4000/golang/2020/09/01/belajar-golang-menggunakan-tdd</id><content type="html" xml:base="http://localhost:4000/golang/2020/09/01/belajar-golang-menggunakan-tdd.html">&lt;p&gt;Pada kesempatan kali ini, kita akan belajar bahasa pemrograman Golang dengan menerapkan Test Driven Development.
-Kita tidak hanya akan membuat implementasi dari suatu program, tapi juga akan membuat test terlebih dahulu sebelum menjalankan program yang kita buat.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-09-07T08:44:41+07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Temporary Coding Stuff Title</title><subtitle>code talk, talk about code.</subtitle><entry><title type="html">Belajar Golang Menggunakan Test Driven Development (TDD)</title><link href="http://localhost:4000/golang/2020/09/01/belajar-golang-menggunakan-tdd.html" rel="alternate" type="text/html" title="Belajar Golang Menggunakan Test Driven Development (TDD)" /><published>2020-09-01T05:55:18+07:00</published><updated>2020-09-01T05:55:18+07:00</updated><id>http://localhost:4000/golang/2020/09/01/belajar-golang-menggunakan-tdd</id><content type="html" xml:base="http://localhost:4000/golang/2020/09/01/belajar-golang-menggunakan-tdd.html">&lt;p&gt;Halo semua, pada kali ini kita akan membuat program sederhana dengan menggunakan bahasa pemrograman Golang.
+Kita akan memulai dengan membuat fungsi serta sekaligus belajar tipe data string.
+Kita akan membuat program dengan dibantu oleh test yang terlebih dahulu kita buat. Cara ini disebut dengan nama 
+&lt;em&gt;Test Driven Development&lt;/em&gt;.&lt;/p&gt;
 
-&lt;p&gt;“Lah, Ngapain ditest dulu sebelum dibuat. Bukannya kita langsung buat aja programnya dulu setelah itu baru ditest?”&lt;/p&gt;
+&lt;p&gt;Untuk memulai, kita perlu membuat sebuah file baru dengan nama &lt;em&gt;greeting_test.go&lt;/em&gt;. Nama file test yang akan kita buat,&lt;/p&gt;
 
-&lt;p&gt;Test yang akan kita buat ini akan dibuat menjadi kode yang selanjutnya bisa dieksekusi kapanpun kita inginkan. 
-Kelebihannya adalah feedback bisa menjadi lebih cepat karena selanjutnya kode test kita sendiri yang akan mengecek apakah kode kita sudah benar atau belum.
-Selain itu, kita juga bisa membagi kode kita menjadi bagian-bagian kecil sehingga gampang untuk dirawat, memaksa kita untuk membuat kode yang optimal dan efisien serta 
-dengan adanya test maka ketika ada perubahan nanti kita tidak perlu khawatir akan mempengaruhi fitur lain. Fitur-fitur yang sudah ada
-sudah memiliki test tersendiri, karena itu jika dari pembuatan fitur baru terjadi kerusakan pada test yang sudah lama maka kita bisa langsung mengetahui hanya dengan menjalankan test yang sudah ada.&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-golang&quot; data-lang=&quot;golang&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;
 
-&lt;p&gt;Oke, untuk memulai pelajaran kita ini, kita akan membuat program yang akan menampilkan “Hello world”.&lt;/p&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;testing&quot;&lt;/span&gt;
 
-&lt;div class=&quot;language-golang highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TestGreeting&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;testing&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;actual&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Greeting&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Hello, world!&quot;&lt;/span&gt;
 
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;fmt&quot;&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello world&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;actual&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Errorf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Actual %s, expect %s&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;actual&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">Pada kesempatan kali ini, kita akan belajar bahasa pemrograman Golang dengan menerapkan Test Driven Development. Kita tidak hanya akan membuat implementasi dari suatu program, tapi juga akan membuat test terlebih dahulu sebelum menjalankan program yang kita buat.</summary></entry><entry><title type="html">Hello World!</title><link href="http://localhost:4000/random/2020/03/25/hello-world.html" rel="alternate" type="text/html" title="Hello World!" /><published>2020-03-25T05:55:18+07:00</published><updated>2020-03-25T05:55:18+07:00</updated><id>http://localhost:4000/random/2020/03/25/hello-world</id><content type="html" xml:base="http://localhost:4000/random/2020/03/25/hello-world.html">&lt;p&gt;It does not has anything to it, but first post should be a hello world!&lt;/p&gt;</content><author><name></name></author><summary type="html">It does not has anything to it, but first post should be a hello world!</summary></entry></feed>
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Kita bisa menjalankan test ini dengan menggunakan &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;go test&lt;/code&gt; di terminal. Hasil dari test ini akan gagal sebagai berikut:
+Namun, tidak perlu khawatir. Kita memang perlu memastikan terlebih dahulu kalau test yang kita buat akan gagal.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# golang_with_test_test [golang_with_test.test]
+./greeting_test.go:6:12: undefined: Greeting
+FAIL    golang_with_test [build failed]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Setelah mengetahui tentang test kita yang gagal, perlu diperhatikan pesan error yang ada. Kali ini, &lt;em&gt;undefined: Greeting&lt;/em&gt;
+yang artinya, kita telah menggunakan fungsi greeting (baris 6 di greeting_test.go) namun fungsi tersebut belum dibuat.&lt;/p&gt;
+
+&lt;p&gt;Langkah selanjutnya yang akan kita lakukan adalah membuat fungsi greeting. Kita akan memulainya dengan membuat file baru 
+dengan nama &lt;em&gt;greeting.go&lt;/em&gt;.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-golang&quot; data-lang=&quot;golang&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Greeting&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Kita perlu menjalankan &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;go test&lt;/code&gt; lagi di terminal. Hasilnya akan gagal, namun kita sudah memperbaiki error di mana 
+fungsi Greeting belum dibuat.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;--- FAIL: TestGreeting (0.00s)
+    greeting_test.go:10: Actual , expect Hello, world!
+FAIL
+exit status 1
+FAIL    golang_with_test        0.002s
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Sekarang, error-nya sudah sesuai dengan ekspektasi yang kita inginkan. Di &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;greeting_test.go&lt;/code&gt; kita menginginkan kalau
+fungsi &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Greeting&lt;/code&gt; akan menampilkan “Hello world!” namun sekarang tidak ada apa-pun. Sudah tepat, sekarang kita perlu 
+memperbaiki fungsi &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Greeting&lt;/code&gt; kita kembali.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-golang&quot; data-lang=&quot;golang&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Greeting&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Hello, world!&quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Setelah kita memperbaiki fungsi &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Greeting&lt;/code&gt; seperti di atas. Maka hasil dari eksekusi kita dengan menggunakan &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;go test&lt;/code&gt;
+adalah sebagai berikut:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;PASS
+ok      golang_with_test        0.001s
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Sudah PASS. Selamat!! kita sudah berhasil membuat test dan implementasi dari hello world.&lt;/p&gt;</content><author><name></name></author><summary type="html">Halo semua, pada kali ini kita akan membuat program sederhana dengan menggunakan bahasa pemrograman Golang. Kita akan memulai dengan membuat fungsi serta sekaligus belajar tipe data string. Kita akan membuat program dengan dibantu oleh test yang terlebih dahulu kita buat. Cara ini disebut dengan nama Test Driven Development.</summary></entry><entry><title type="html">Hello World!</title><link href="http://localhost:4000/random/2020/03/25/hello-world.html" rel="alternate" type="text/html" title="Hello World!" /><published>2020-03-25T05:55:18+07:00</published><updated>2020-03-25T05:55:18+07:00</updated><id>http://localhost:4000/random/2020/03/25/hello-world</id><content type="html" xml:base="http://localhost:4000/random/2020/03/25/hello-world.html">&lt;p&gt;It does not has anything to it, but first post should be a hello world!&lt;/p&gt;</content><author><name></name></author><summary type="html">It does not has anything to it, but first post should be a hello world!</summary></entry></feed>

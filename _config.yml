@@ -28,7 +28,9 @@ twitter_username: zaenulhilmi
 github_username:  zaenulhilmi
 
 # Build settings
-theme: texture
+#theme: minima
+theme: minima
+
 plugins:
   - jekyll-feed
 
